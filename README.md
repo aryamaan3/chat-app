@@ -11,10 +11,12 @@ utilisation des conventions BEM
 
 ## Maquettes
 
-[Maquette Lofi](./doc/maquetteLofi.png) \
+### Maquette Lofi
+<img src="./doc/maquetteLofi.png"> \
 réalisé avec moqup
 
-[Maquette Hifi](./doc/maquetteHiFi.png) \
+### Maquette Hifi
+<img src = "./doc/maquetteHiFi.png"> \
 réalisé avec html/css javascript et react 
 
 
