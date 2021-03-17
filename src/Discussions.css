@@ -1,16 +1,50 @@
 .discussions{
     display: flex;
+    flex-direction: column;
     flex: 0.35; /*prend 35% de largeur disponible*/
 }
 
-.discussions_enTete{
-
+.discussions__enTete{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-right: 1px solid lightgray;
 }
 
-.discussion_enTeteDroite{
-
+.discussions__enTeteDroite{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 10vw; 
 }
 
-.discussion_enTeteGauche{
-    
+/*https://freefrontend.com/css-search-boxes/*/
+
+.discussions__search{
+    display: flex;
+    align-items: center;
+    background-color: #f6f6f6;
+    height: 39px;
+    padding: 10px;
+}
+
+.discussions__searchContainer{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 35px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.discussions__searchContainer > input{
+    border: none;
+    margin-left: 10px;
+    outline: none;
+}
+
+.discussions__list{
+    flex: 1;
+    background-color: white;
+    overflow: scroll;
 }
