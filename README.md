@@ -17,7 +17,7 @@ réalisé avec moqup
 
 ### Maquette Hifi
 <img src = "./doc/maquetteHiFi.png"> \
-réalisé avec html/css javascript et react 
+réalisé avec html/css, javascript et react 
 
 
 
