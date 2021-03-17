@@ -1,4 +1,4 @@
-# Chat en ligne
+# Front-end du Chat en ligne
 ## Scripts
 
 Dans le fichier du projet
