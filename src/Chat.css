@@ -3,3 +3,78 @@
     flex-direction: column;
     flex: 0.65; /*prend 65% de largeur disponible*/
 }
+
+.chat__enTete{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.chat__enTeteInfo{
+    flex: 1; /*rempli le container*/
+    padding-left: 20px;
+}
+
+.chat__enTeteInfo > h3{
+    margin-bottom: 3px;
+    font-weight: 500;
+}
+
+.chat__enTeteInfo > p{
+    color: gray;
+}
+
+.chat__messagesContainer{
+    flex: 1;
+    overflow: scroll;
+    padding: 30px;
+    background-color: white;
+}
+
+.chat__message{
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: rgb(230, 229, 235);
+    margin-bottom: 30px;
+}
+
+.chat__nom{
+    position: absolute;
+    top: -15px;
+    font-weight: 800;
+    font-size: xx-small;
+}
+
+.chat__messageEnvoi{
+    margin-left: auto;
+    background-color: rgb(78, 153, 244);
+}
+
+.chat__EcrireMessage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    border-top: 1px solid lightgray;
+}
+
+.chat__EcrireMessage > form{
+    flex: 1;
+    display: flex;
+}
+
+.chat__EcrireMessage > form > input{
+    flex: 1;
+    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+
+.chat__EcrireMessage > form > button{
+    display: none; /* cache le button, mais appuyer sur entrer marchera*/
+}

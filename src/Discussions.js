@@ -10,7 +10,7 @@ function Discussions() {
             <div className='discussions__enTete'>
                 <Avatar />
                 <div className="discussions__enTeteDroite">
-                    Nom d'utilisateur
+                    Trae
                 </div>
             </div>
 

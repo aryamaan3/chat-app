@@ -2,7 +2,7 @@ import { Avatar } from '@material-ui/core';
 import React from 'react';
 import './ListeDiscussion.css';
 
-function ListeDiscussion() {
+function ListeDiscussion(nom) {
     return (
         <div className="ListeDiscussion">
             <Avatar />
