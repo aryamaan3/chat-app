@@ -1,0 +1,16 @@
+.discussions{
+    display: flex;
+    flex: 0.35; /*prend 35% de largeur disponible*/
+}
+
+.discussions_enTete{
+
+}
+
+.discussion_enTeteDroite{
+
+}
+
+.discussion_enTeteGauche{
+    
+}
