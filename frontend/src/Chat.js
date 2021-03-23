@@ -1,9 +1,29 @@
 import { Avatar } from '@material-ui/core';
-import React from 'react'
+import React, { useState } from 'react'
 import "./Chat.css";
+import axios from "./axios"
 
 
-function Chat() {
+function Chat({ messages }) {
+
+    const [input, setInput] = useState("");
+
+    const envoyer = async (e) => {
+        e.preventDefault(); //empeche de rafraichir la page
+
+        axios.post('/message/new', {
+            message: input, 
+            name: "Vous",
+            recu: true
+        })
+
+        setInput('')
+    }
+
+    
+
+    //https://stackoverflow.com/questions/39523040/concatenating-variables-and-strings-in-react
+    //map au lieu de foreach car, foreach peut rien return
     return (
         <div className='chat'>
             
@@ -15,38 +35,28 @@ function Chat() {
             </div>
 
             <div className="chat__messagesContainer">
-                <p className="chat__message">
+                {messages.map((message) => (
+                    <p className={`chat__message ${message.recu && "chat__messageEnvoi"}`}>
+            
                     <span className="chat__nom">
-                        Ary
+                        {message.name}
                     </span>
                     
-                    Salut tout le monde! 
+                    {message.message}
                 </p>
+                ))}
 
-                <p className="chat__message chat__messageEnvoi">
-                    <span className="chat__nom">
-                        Trae
-                    </span>
-                    
-                    Salut, ça va?
-                </p>
-
-                <p className="chat__message">
-                    <span className="chat__nom">
-                        Ary
-                    </span>
-                    
-                    Oui et toi?
-                </p>
             </div>
 
             <div className="chat__EcrireMessage">
                 <form>
                     <input 
+                        value={input}
+                        onChange = {e => setInput(e.target.value)}
                         type="text"
                         placeholder = "Écrivez un message"
                     />
-                    <button type="submit">Envoyer</button>
+                    <button onClick={envoyer} type="submit"></button>
                 </form>
             </div>
         </div>

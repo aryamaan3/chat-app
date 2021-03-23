@@ -7,4 +7,5 @@ const chatSchema = mongoose.Schema({
     recu: Boolean, 
 });
 
-export default mongoose.model('contenuMessage', chatSchema)
+//collection
+export default mongoose.model('contenumessages', chatSchema)

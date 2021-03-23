@@ -3,6 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import Message from './bdMessage.js'
 import Pusher from "pusher"
+import cors from "cors"
 
 //config
 const app = express()
@@ -18,6 +19,7 @@ const pusher = new Pusher({
 
 // mediateur, convertis json
 app.use(express.json())
+app.use(cors()) //accepte tout les endpoint
 
 
 //bd config 
@@ -30,7 +32,27 @@ mongoose.connect(conUrl, {
 
 const bd = mongoose.connection
 bd.once('open', () => {
-    console.log("connecté")
+    console.log("connecté");
+
+    const recepteurMessage = bd.collection("contenumessages")
+    const changeStream = recepteurMessage.watch() 
+
+    changeStream.on('change', (change) =>{
+        console.log("changement " + change);
+
+        if (change.operationType === 'insert'){
+            const detailsMessage = change.fullDocument;
+            pusher.trigger('messages', 'inserted', 
+            {
+                name: detailsMessage.name, 
+                message: detailsMessage.message, 
+                recu: detailsMessage.recu
+            })
+        }
+        else{
+            console.log("error pusher trigger ")
+        }
+    })
 })
 
 
