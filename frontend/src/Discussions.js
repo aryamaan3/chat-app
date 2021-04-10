@@ -8,7 +8,7 @@ function Discussions() {
     return (
         <div className='discussions'>
             <div className='discussions__enTete'>
-                <Avatar />
+                <Avatar>TR</Avatar>
                 <div className="discussions__enTeteDroite">
                     Trae
                 </div>

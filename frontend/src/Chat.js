@@ -26,7 +26,6 @@ function Chat({ messages }) {
     //map au lieu de foreach car, foreach peut rien return
     return (
         <div className='chat'>
-            
             <div className="chat__enTete">
                 <Avatar />
                 <div className="chat__enTeteInfo">
