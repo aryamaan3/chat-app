@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./Login.css";
 import { Grid, Paper, Avatar, TextField, Button } from "@material-ui/core"
-import { BrowserRouter } from 'react-router-dom';
 
 export default function Login({history}){
     const [pseudo, setPseudo] = useState("");
@@ -20,7 +19,6 @@ export default function Login({history}){
                 history.push('/logged/?' + pseudo)
             }} type='submit' color='rgb(218, 221, 217)' variant="contained" fullWidth>Entrer</Button>
         </Paper>
-        {console.log(window.location.pathname)}
     </Grid>
   );
 }

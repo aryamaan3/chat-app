@@ -19,8 +19,21 @@ function App() {
 
   useEffect(() => { 
     let url = window.location.href
-    setUsername(url.split("?")[1])
+    let pseudo = url.split("?")[1]
+    setUsername(pseudo)
+    if (!pseudo){
+      let id = setInterval(() => {
+        url = window.location.href
+        pseudo = url.split("?")[1]
+        setUsername(pseudo)
+        if(pseudo){
+          console.log("Hello "+ pseudo)
+          clearInterval(id)
+        }
+      }, 3000)
+    }
   }, [])
+
 
   
   useEffect(() => { //quand page est chargé
@@ -59,7 +72,6 @@ function App() {
 
   return (
     <div className="App">
-      {console.log(username)}
         <BrowserRouter>
           <Switch>
             <Route path='/' exact component={Login} />
