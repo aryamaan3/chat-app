@@ -4,7 +4,7 @@ import "./Chat.css";
 import axios from "./axios"
 
 
-function Chat({ messages }) {
+function Chat({ messages, username }) {
 
     const [input, setInput] = useState("");
 
@@ -13,7 +13,7 @@ function Chat({ messages }) {
 
         axios.post('/message/new', {
             message: input, 
-            name: "Vous",
+            name: username,
             recu: true
         })
 
@@ -35,7 +35,7 @@ function Chat({ messages }) {
 
             <div className="chat__messagesContainer">
                 {messages.map((message) => (
-                    <p className={`chat__message ${message.recu && "chat__messageEnvoi"}`}>
+                    <p className={`chat__message ${message.name === username && "chat__messageEnvoi"}`}>
             
                     <span className="chat__nom">
                         {message.name}

@@ -4,13 +4,16 @@ import React from 'react';
 import "./Discussions.css";
 import ListeDiscussion from './ListeDiscussion.js';
 
-function Discussions() {
+function Discussions({username}) {
+    const letter1 = username[0]
+    const letter2 = username[1]
+
     return (
         <div className='discussions'>
             <div className='discussions__enTete'>
-                <Avatar>TR</Avatar>
+                <Avatar>{letter1 + letter2}</Avatar>
                 <div className="discussions__enTeteDroite">
-                    Trae
+                    {username}
                 </div>
             </div>
 
@@ -22,8 +25,6 @@ function Discussions() {
             </div>
 
             <div className="discussions__list">
-                <ListeDiscussion />
-                <ListeDiscussion />
                 <ListeDiscussion />
             </div>
         </div>

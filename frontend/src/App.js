@@ -77,8 +77,8 @@ function App() {
             <Route path='/' exact component={Login} />
             <Route path='/logged' >
               <div className='container'>
-                <Discussions /> 
-                <Chat messages={messages} />
+                <Discussions username={username}/> 
+                <Chat messages={messages} username={username}/>
               </div>
             </Route>
           </Switch>
