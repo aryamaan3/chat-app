@@ -12,7 +12,7 @@ function Chat({ messages, username }) {
         e.preventDefault(); //empeche de rafraichir la page
 
         axios.post('/message/new', {
-            message: input, 
+            message: input,
             name: username,
             recu: true
         })
@@ -20,7 +20,7 @@ function Chat({ messages, username }) {
         setInput('')
     }
 
-    
+
 
     //https://stackoverflow.com/questions/39523040/concatenating-variables-and-strings-in-react
     //map au lieu de foreach car, foreach peut rien return
@@ -36,24 +36,24 @@ function Chat({ messages, username }) {
             <div className="chat__messagesContainer">
                 {messages.map((message) => (
                     <p className={`chat__message ${message.name === username && "chat__messageEnvoi"}`}>
-            
-                    <span className="chat__nom">
-                        {message.name}
-                    </span>
-                    
-                    {message.message}
-                </p>
+
+                        <span className="chat__nom">
+                            {message.name}
+                        </span>
+
+                        {message.message}
+                    </p>
                 ))}
 
             </div>
 
             <div className="chat__EcrireMessage">
                 <form>
-                    <input 
+                    <input
                         value={input}
-                        onChange = {e => setInput(e.target.value)}
+                        onChange={e => setInput(e.target.value)}
                         type="text"
-                        placeholder = "Écrivez un message"
+                        placeholder="Écrivez un message"
                     />
                     <button onClick={envoyer} type="submit"></button>
                 </form>

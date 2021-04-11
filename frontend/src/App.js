@@ -11,23 +11,24 @@ function App() {
   const [messages, setMessages] = useState([])
   const [username, setUsername] = useState("");
 
-  useEffect(() => { 
+
+  useEffect(() => {
     axios.get("/message/sync").then(response => {
-        setMessages(response.data)
-      })
+      setMessages(response.data)
+    })
   }, [])//fetch une fois au debut https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
 
-  useEffect(() => { 
+  useEffect(() => {
     let url = window.location.href
     let pseudo = url.split("?")[1]
     setUsername(pseudo)
-    if (!pseudo){
+    if (!pseudo) {
       let id = setInterval(() => {
         url = window.location.href
         pseudo = url.split("?")[1]
         setUsername(pseudo)
-        if(pseudo){
-          console.log("Hello "+ pseudo)
+        if (pseudo) {
+          console.log("Hello " + pseudo)
           clearInterval(id)
         }
       }, 3000)
@@ -35,7 +36,7 @@ function App() {
   }, [])
 
 
-  
+
   useEffect(() => { //quand page est chargé
     //ecoute sur pusher
     const pusher = new Pusher('0c7f1c2bbfdfc2276821', {
@@ -72,17 +73,17 @@ function App() {
 
   return (
     <div className="App">
-        <BrowserRouter>
-          <Switch>
-            <Route path='/' exact component={Login} />
-            <Route path='/logged' >
-              <div className='container'>
-                <Discussions username={username}/> 
-                <Chat messages={messages} username={username}/>
-              </div>
-            </Route>
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/' exact component={Login} />
+          <Route path='/logged' >
+            <div className='container'>
+              <Discussions username={username} />
+              <Chat messages={messages} username={username} />
+            </div>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

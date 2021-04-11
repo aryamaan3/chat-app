@@ -1,10 +1,10 @@
 import { Avatar } from '@material-ui/core';
 import { SearchOutlined } from '@material-ui/icons';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import "./Discussions.css";
 import ListeDiscussion from './ListeDiscussion.js';
 
-function Discussions({username}) {
+function Discussions({ username }) {
 
     return (
         <div className='discussions'>
@@ -18,7 +18,7 @@ function Discussions({username}) {
             <div className="discussions__search">
                 <div className="discussions__searchContainer">
                     <SearchOutlined />
-                    <input height="200" size="50" placeholder="Recherchez ou créez une discussion" type="text"/>
+                    <input height="200" size="50" placeholder="Recherchez ou créez une discussion" type="text" />
                 </div>
             </div>
 
