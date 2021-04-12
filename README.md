@@ -17,8 +17,8 @@ ouvrez deux terminal dans le fichier du projet
 - [x] : je peux envoyer un message
 - [x] : je peux voir en temps réel les messages envoyés par quelqu'un d'autre
 - [x] : je peux changer mon username
-- [ ] : je changer ou créer une discussion
 - [x] : je peux voir le vrai username de la personne qui envoi des messages
+- [ ] : je changer ou créer une discussion
 
 
 
