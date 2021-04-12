@@ -1,18 +1,25 @@
 // import
 import express from 'express'
+//import 'dotenv'
 import mongoose from 'mongoose'
 import Message from './bdMessage.js'
 import Pusher from "pusher"
 import cors from "cors"
+import config from "./config.js" // omis pour des raisons de securité
+
 
 //config
 const app = express()
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 9000 //good practice
+
+const pusherKey = config.PUSHER_KEY
+const pusherSecret = config.PUSHER_SECRET
+const mongoKey = config.MONGO_KEY
 
 const pusher = new Pusher({
     appId: "1176582",
-    key: "0c7f1c2bbfdfc2276821",
-    secret: "548eab68ea142f35e39a",
+    key: pusherKey,
+    secret: pusherSecret,
     cluster: "eu",
     useTLS: true
   });
@@ -23,8 +30,8 @@ app.use(cors()) //accepte tout les endpoint
 
 
 //bd config 
-const conUrl = 'mongodb+srv://admin:vSKG59Adg2Ww5Fy8@cluster0.2zmz7.mongodb.net/chatappbd?retryWrites=true&w=majority'
-mongoose.connect(conUrl, {
+
+mongoose.connect(mongoKey, {
     useCreateIndex: true,
     useNewUrlParser: true, 
     useUnifiedTopology: true
