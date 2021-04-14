@@ -1,9 +1,8 @@
-// import
 import express from 'express'
-//import 'dotenv'
+const env = require('dotenv')
 import mongoose from 'mongoose'
-import Message from './bdMessage.js'
-import Pusher from "pusher"
+import Message from './bdMessage.js' //model
+import Pusher from "pusher" //socket
 import cors from "cors"
 import config from "./config.js" // omis pour des raisons de securité
 
@@ -26,30 +25,30 @@ const pusher = new Pusher({
 
 // mediateur, convertis json
 app.use(express.json())
-app.use(cors()) //accepte tout les endpoint
+app.use(cors()) //coresspond au principe cors des navigateurs
 
 
 //bd config 
-
 mongoose.connect(mongoKey, {
     useCreateIndex: true,
     useNewUrlParser: true, 
     useUnifiedTopology: true
-})
+}) //TODO gerer le reject du promise
 
 const bd = mongoose.connection
-bd.once('open', () => {
+bd.once('open', () => { //connection établie
     console.log("connecté");
 
     const recepteurMessage = bd.collection("contenumessages")
-    const changeStream = recepteurMessage.watch() 
+    const changeStream = recepteurMessage.watch()  //ecoute la collection "contenumessages"
 
-    changeStream.on('change', (change) =>{
+    changeStream.on('change', (change) =>{ //lors d'une modif
         console.log("changement " + change);
 
-        if (change.operationType === 'insert'){
+        if (change.operationType === 'insert'){ //si ajout dans la bd
             const detailsMessage = change.fullDocument;
-            pusher.trigger('messages', 'inserted', 
+            pusher.trigger('messages', 'inserted',  //envoi à tous les clients connecté à ce socket
+            //https://github.com/pusher/pusher-js
             {
                 name: detailsMessage.name, 
                 message: detailsMessage.message, 

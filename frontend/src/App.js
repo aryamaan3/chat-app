@@ -48,8 +48,8 @@ function App() {
       setMessages([...messages, nouvelleMessage]) //equivalent append
     });
 
-    //on enleve les listener car la dans le cas 
-    //d'un nouveau message alert est appelé plusieurs fois
+    //on enleve les listener car dans le cas 
+    //d'un nouveau message page reload
     return () => {
       channel.unbind_all()
       channel.unsubscribe()
