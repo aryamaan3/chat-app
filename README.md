@@ -1,12 +1,20 @@
 # chat-app
 
+## demo
+
+[lien youtube](https://youtu.be/sN63NH3u1jM)
+
+<img width="1310" alt="Screenshot 2021-04-15 at 15 24 52" src="https://user-images.githubusercontent.com/71285263/114878898-fe62ab80-9e00-11eb-8f64-ccfb08d2623c.png"> 
+
+## lancement sur votre machine
+
 ouvrez deux terminal dans le fichier du projet
  
-## terminal 1
+### terminal 1
 `$ cd backend` \
 `$ nodemon server.js`
 
-## terminal 2
+### terminal 2
 
 `$ cd frontend` \
 `$ npm start`

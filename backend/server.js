@@ -1,5 +1,4 @@
 import express from 'express'
-const env = require('dotenv')
 import mongoose from 'mongoose'
 import Message from './bdMessage.js' //model
 import Pusher from "pusher" //socket
@@ -15,7 +14,7 @@ const pusherKey = config.PUSHER_KEY
 const pusherSecret = config.PUSHER_SECRET
 const mongoKey = config.MONGO_KEY
 
-const pusher = new Pusher({
+const pusher = new Pusher({ //on crée le socket
     appId: "1176582",
     key: pusherKey,
     secret: pusherSecret,
